@@ -1,6 +1,6 @@
 package com.HospitalManagement.NotificationService.service;
 
-import com.HospitalManagement.NotificationService.dtos.AppointmentEventDTO;
+import com.HospitalManagement.NotificationService.dtos.AppointmentDTO;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ public class EmailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public void sendAppointmentConfirmation(String email, AppointmentEventDTO event){
+    public void sendAppointmentConfirmation(String email, AppointmentDTO event){
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email);
-        msg.setSubject("Appointment Confirmation - " + event.getAppointmentId());
+        msg.setSubject("Appointment Confirmation - " + event.getId());
         msg.setText("Your appointment is confirmed on:\n"
                 + event.getAppointmentTime()
                 + "\nPurpose: " + event.getPurpose());
@@ -23,7 +23,7 @@ public class EmailService {
         javaMailSender.send(msg);
     }
 
-    public void sendAppointmentReminder(String email, AppointmentEventDTO event) {
+    public void sendAppointmentReminder(String email, AppointmentDTO event) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email);

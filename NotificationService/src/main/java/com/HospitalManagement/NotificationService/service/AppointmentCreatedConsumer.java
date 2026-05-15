@@ -1,7 +1,6 @@
 package com.HospitalManagement.NotificationService.service;
 
-import ch.qos.logback.core.subst.NodeToStringTransformer;
-import com.HospitalManagement.NotificationService.dtos.AppointmentEventDTO;
+import com.HospitalManagement.NotificationService.dtos.AppointmentDTO;
 import com.HospitalManagement.NotificationService.model.NotificationAppointment;
 import com.HospitalManagement.NotificationService.repository.NotificationRepository;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -20,10 +19,10 @@ public class AppointmentCreatedConsumer {
     }
 
     @KafkaListener(topics = "appointment-created", groupId = "notification-service-group")
-    public void consume(AppointmentEventDTO event) {
+    public void consume(AppointmentDTO event) {
 
         NotificationAppointment n = new NotificationAppointment();
-        n.setAppointmentId(event.getAppointmentId());
+        n.setAppointmentId(event.getId());
         n.setPatientId(event.getPatientId());
         n.setDoctorId(event.getDoctorId());
         n.setPatientEmail(event.getPatientEmail());

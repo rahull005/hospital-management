@@ -4,15 +4,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AppointentDTO {
-    private int id;
+    private int id;               // appointment unique id
     private int patientId;
     private int doctorId;
+
     private String patientEmail;
     private String doctorEmail;
-    private LocalDateTime appointmentTime;
+
     private String purpose;
+    private LocalDateTime appointmentTime;
+
     private String createdBy;
     private String createdRoles;
+
 
     public String getPatientEmail() {
         return patientEmail;

@@ -2,10 +2,10 @@ package com.HospitalManagement.NotificationService.dtos;
 
 import java.time.LocalDateTime;
 
-public class AppointmentEventDTO {
-    private Long appointmentId;
-    private Long patientId;
-    private Long doctorId;
+public class AppointmentDTO {
+    private int id;               // appointment unique id
+    private int patientId;
+    private int doctorId;
 
     private String patientEmail;
     private String doctorEmail;
@@ -16,29 +16,27 @@ public class AppointmentEventDTO {
     private String createdBy;
     private String createdRoles;
 
-    public AppointmentEventDTO() {}
-
-    public Long getAppointmentId() {
-        return appointmentId;
+    public int getId() {
+        return id;
     }
 
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Long getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Long patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
-    public Long getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(Long doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 
@@ -58,20 +56,20 @@ public class AppointmentEventDTO {
         this.doctorEmail = doctorEmail;
     }
 
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
     public LocalDateTime getAppointmentTime() {
         return appointmentTime;
     }
 
     public void setAppointmentTime(LocalDateTime appointmentTime) {
         this.appointmentTime = appointmentTime;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public String getCreatedBy() {

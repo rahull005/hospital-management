@@ -1,7 +1,6 @@
 package com.HospitalManagement.NotificationService.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
@@ -11,10 +10,10 @@ public class NotificationAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
     @SequenceGenerator(name = "seq",sequenceName = "seq",allocationSize = 1)
-    private Long appointmentId;
+    private int appointmentId;
 
-    private Long patientId;
-    private Long doctorId;
+    private int patientId;
+    private int doctorId;
 
     private String patientEmail;
     private String doctorEmail;
@@ -31,7 +30,7 @@ public class NotificationAppointment {
     public NotificationAppointment() {
     }
 
-    public NotificationAppointment(Long appointmentId, Long patientId, Long doctorId, String patientEmail, String doctorEmail, String purpose, LocalDateTime appointmentTime, boolean reminderSent, boolean confirmationSent, LocalDateTime createdAt) {
+    public NotificationAppointment(int appointmentId, int patientId, int doctorId, String patientEmail, String doctorEmail, String purpose, LocalDateTime appointmentTime, boolean reminderSent, boolean confirmationSent, LocalDateTime createdAt) {
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.doctorId = doctorId;
@@ -44,27 +43,27 @@ public class NotificationAppointment {
         this.createdAt = createdAt;
     }
 
-    public Long getAppointmentId() {
+    public int getAppointmentId() {
         return appointmentId;
     }
 
-    public void setAppointmentId(Long appointmentId) {
+    public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;
     }
 
-    public Long getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Long patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
-    public Long getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(Long doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 
